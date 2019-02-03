@@ -5,7 +5,7 @@ console.log("App is running");
 
 var handler = function(request, response) {
 	response.writeHead(200);
-	response.end("You're on the master branch \n");
+	response.end("You're on the feature-A branch \n");
 };
 
 var www = http.createServer(handler);
