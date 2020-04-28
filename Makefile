@@ -10,7 +10,7 @@ push:
 	docker push $(NAME)
 
 run:
-	docker run -p EXPOSE_PORT:8080 $(NAME)
+	docker run --rm -p EXPOSE_PORT:8080 $(NAME)
 
 install-docker:
 	scripts/install_docker.sh
