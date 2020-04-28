@@ -18,4 +18,6 @@ echo "Stopping current run"
 docker stop docker-dumb-app
 
 echo "Launching new build"
-docker run --rm -p 3000:8080 --name docker-dumb-app docker-dumb-app:$branch
+docker run -d --rm -p 3000:8080 --name docker-dumb-app docker-dumb-app:$branch
+
+echo "The $branch branch has been sucessfully deployed !"
