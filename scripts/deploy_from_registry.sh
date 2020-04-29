@@ -6,7 +6,7 @@ set -e
 # default branch to current branch
 branch=${1:master}
 app_name="docker-dumb-app"
-image_name="dixneuf19/$app_name:$branch"
+image_name="dixneuf19/dumb/$app_name:$branch"
 
 echo "Pulling $image_name from registry"
 docker pull $image_name

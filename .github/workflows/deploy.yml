@@ -16,5 +16,4 @@ jobs:
       
     - name: docker build & push
       run: |
-        echo "$(docker system info | grep -E 'Username|Registry')"
         ./scripts/build_and_release.sh

@@ -23,7 +23,8 @@ On a donc `build_and_release.sh` pour la CI/CD, et `deploy_from_registry.sh` pou
 
 ## CI/CD avec GitHub actions
 
-Quand les scripts précédents fonctionnent bien, il est alors facile de passer à une CI/CD automatisé, en lançant cette fois `build_and_release.sh` depuis le job Github (en lui donnant les secret du Docker Registry).
+~~Quand les scripts précédents fonctionnent bien, il est alors facile de passer à une CI/CD automatisé, en lançant cette fois `build_and_release.sh` depuis le job Github (en lui donnant les secret du Docker Registry).~~
+Les GitHub action aiment bien que l'on utilise les actions déjà constituées, réutiliser le script pose quelques problèmes. On écrit donc l'action dans `.github/workflows`.
 
 ## Commentaires
 
