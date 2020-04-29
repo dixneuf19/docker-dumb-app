@@ -1,0 +1,17 @@
+on: push
+name: Publish
+jobs:
+  build-and-publish:
+    name: build and publish
+    runs-on: ubuntu-latest
+    steps:
+    - name: docker login
+      uses: actions/docker/login@master
+      env:
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+      
+    - name: docker build & push
+    uses: actions/docker/cli@master
+    with:
+        args: scripts/build_and_release.sh
