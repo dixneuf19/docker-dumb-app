@@ -26,6 +26,8 @@ On a donc `build_and_release.sh` pour la CI/CD, et `deploy_from_registry.sh` pou
 ~~Quand les scripts précédents fonctionnent bien, il est alors facile de passer à une CI/CD automatisé, en lançant cette fois `build_and_release.sh` depuis le job Github (en lui donnant les secret du Docker Registry).~~
 Les GitHub action aiment bien que l'on utilise les actions déjà constituées, réutiliser le script tel quel pose quelques problèmes. On écrit donc l'action dans `.github/workflows` en utilisant des *actions* dejà faites. Cela nous impose notamment que la banche *master* sera tagué comme *latest*.
 
+L'utilisation est donc encore simplifié. Il suffit maintenant de lancer `deploy_from_registry.sh` depuis le serveur, avec en argument la branche voulue, pour fetch et lancer le dernier build. Automatiser le lancement de ce script serait une étape supplémentaire.
+
 ## Commentaires
 
 Sur la machine EC2, `docker` n'est pas installé par défaut. Normalement, on travaillera avec des systèmes supportant de base les containers, mais ici on rajoute un script dépendant de la plateforme pour installer `docker` sur l'instance **EC2 Ubuntu**.
