@@ -21,6 +21,10 @@ On va maintenant séparer la partie *release* de la partie *déploiement*. Lorsq
 
 On a donc `build_and_release.sh` pour la CI/CD, et `deploy_from_registry.sh` pour le serveur. Il faut faire attention aux problèmes d'accès au registry, et la gestion des secrets.
 
+## CI/CD avec GitHub actions
+
+Quand les scripts précédents fonctionnent bien, il est alors facile de passer à une CI/CD automatisé, en lançant cette fois `build_and_release.sh` depuis le job Github (en lui donnant les secret du Docker Registry).
+
 ## Commentaires
 
 Sur la machine EC2, `docker` n'est pas installé par défaut. Normalement, on travaillera avec des systèmes supportant de base les containers, mais ici on rajoute un script dépendant de la plateforme pour installer `docker` sur l'instance **EC2 Ubuntu**.
