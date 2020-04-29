@@ -1,16 +1,19 @@
 #!/bin/bash
 
+set -e
+
 # default branch to current branch
-branch=${1:-$(git rev-parse --abbrev-ref HEAD)}
+branch="$(git rev-parse --abbrev-ref HEAD)"
+app_name="docker-dumb-app"
+image_name="dixneuf19/$app_name:$branch"
+
+# could be used for versioning
 commit=$(git rev-parse --short HEAD)
-
-
-image_name=dixneuf19/docker-dumb-app:$branch
 
 echo "Releasing branch $branch for commit $commit"
 
 echo "Building docker image"
-docker build -t image $image_name .
+docker build -t $image_name .
 
 echo "Pushing to registry (need to be logged)"
 docker push $image_name
