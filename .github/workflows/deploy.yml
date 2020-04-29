@@ -12,6 +12,6 @@ jobs:
         DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       
     - name: docker build & push
-    uses: actions/docker/cli@master
-    with:
+      uses: actions/docker/cli@master
+      with:
         args: scripts/build_and_release.sh
