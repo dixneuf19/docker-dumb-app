@@ -28,6 +28,8 @@ Les GitHub action aiment bien que l'on utilise les actions déjà constituées, 
 
 L'utilisation est donc encore simplifié. Il suffit maintenant de lancer `deploy_from_registry.sh` depuis le serveur, avec en argument la branche voulue, pour fetch et lancer le dernier build. Automatiser le lancement de ce script serait une étape supplémentaire.
 
+On peut observer que l'app est bien déployée sur <http://ec2-35-181-44-116.eu-west-3.compute.amazonaws.com:3000/>
+
 ## Commentaires
 
 Sur la machine EC2, `docker` n'est pas installé par défaut. Normalement, on travaillera avec des systèmes supportant de base les containers, mais ici on rajoute un script dépendant de la plateforme pour installer `docker` sur l'instance **EC2 Ubuntu**.
