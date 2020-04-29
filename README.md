@@ -12,8 +12,14 @@ Techniquement, je pourrai build au niveau du serveur final, mais il n'y aurait a
 
 ## Première méthode
 
-Build et deploy depuis la machine EC2 `deploy.sh`.
+Build et deploy depuis la machine EC2 `build_and_deploy.sh`.
+On récupère la branche qui nous intéresse, on build le docker correspondant et on le lance. Simple mais la machine de production n'est pas forcément adapté au build (elle sert peut être déjà le site), et il faut se ssh dessus pour lancer le script, il faut le faire pour chaque machine si l'on a un reverse_proxy. Bref on peut faire un peu mieux.
 
+## Image Registry
+
+On va maintenant séparer la partie *release* de la partie *déploiement*. Lorsque que l'on fait une mise à jour du code source, le développeur (ou mieux une tâche de CI/CD lancée automatiquement) va lancer les tests, build le code et le publier sur le docker registry. Il ne restera alors plus qu'à indiquer au serveur de récupérer et lancer la nouvelle version (ici en ssh mais si l'on utilise kubernetes on peut également le faire automatiquement).
+
+On a donc `build_and_release.sh` pour la CI/CD, et `deploy_from_registry.sh` pour le serveur. Il faut faire attention aux problèmes d'accès au registry, et la gestion des secrets.
 
 ## Commentaires
 
