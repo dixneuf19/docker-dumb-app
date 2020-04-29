@@ -5,7 +5,7 @@ set -e
 # default branch to master
 branch=${1:-master}
 app_name="docker-dumb-app"
-image_name="dixneuf19/dumb/$app_name:$branch"
+image_name="dixneuf19/$app_name:$branch"
 
 echo "Deploying branch $branch"
 

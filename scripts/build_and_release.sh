@@ -5,7 +5,7 @@ set -e
 # default branch to current branch
 branch="$(git rev-parse --abbrev-ref HEAD)"
 app_name="docker-dumb-app"
-image_name="dixneuf19/dumb/$app_name:$branch"
+image_name="dixneuf19/$app_name:$branch"
 
 # could be used for versioning
 commit=$(git rev-parse --short HEAD)
